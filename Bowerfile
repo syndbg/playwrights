@@ -1,0 +1,4 @@
+asset 'quill'
+asset 'bootstrap'
+asset 'jquery.idle'
+asset 'toastr'

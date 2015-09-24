@@ -1,0 +1,20 @@
+# https://docs.docker.com/compose/rails/
+db:
+  image: postgres:9.4
+  environment:
+    - POSTGRES_USER=playwrights
+    - POSTGRES_PASSWORD=playwrights
+redis:
+  image: redis:3.0.4-32bit
+  ports:
+    - "6379:6379"
+web:
+  build: .
+  command: bundle exec passenger start
+  volumes:
+    - .:/playwrights
+  ports:
+    - "3000:3000"
+  links:
+    - db
+    - redis

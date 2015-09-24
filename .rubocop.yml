@@ -1,0 +1,14 @@
+Documentation:
+  Enabled: false
+Style/SignalException:
+  Enabled: false
+Metrics/LineLength:
+  Max: 100
+AllCops:
+  RunRailsCops: true
+  Exclude:
+    - app/assets/**/*
+    - db/**/*
+    - log/**/*
+    - public/**/*
+    - vendor/**/*

@@ -1,0 +1,10 @@
+{
+  "name": "dsl-generated dependencies",
+  "dependencies": {
+    "quill": "latest",
+    "jquery-pretty-text-diff": "latest",
+    "bootstrap": "latest",
+    "jquery.idle": "latest",
+    "toastr": "latest"
+  }
+}

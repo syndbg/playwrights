@@ -1,0 +1,80 @@
+<div id="wrapper">
+  <div class="modal fade" id="historyModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Changes</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <p class="header">Hello <%= @user.name %>. Your color is
+     <span style='color: <%= @user.color %>'><%= @user.color %></span>
+   </p>
+
+   <ul class="nav nav-tabs" role="tablist">
+     <li role="presentation" class="active"><a href="#editor" aria-controls="editor" role="tab" data-toggle="tab">Editor</a></li>
+     <li role="presentation"><a href="#history" aria-controls="history" role="tab" data-toggle="tab">History</a></li>
+   </ul>
+   <!-- /#sidebar-wrapper -->
+
+   <!-- Page Content -->
+   <div id="page-content-wrapper">
+       <div class="container-fluid">
+           <div class="row">
+               <div class="col-lg-12 tab-content">
+                 <div role="tabpanel" class="tab-pane active" id="editor">
+                   <div id="editor-wrapper">
+                     <div id="formatting-container">
+                         <button id="text-save-btn" title="Save" class="ql-format-button">Save</button>
+                         <select title="Font" class="ql-font">
+                             <option value="sans-serif" selected>Sans Serif</option>
+                             <option value="Georgia, serif">Serif</option>
+                             <option value="Monaco, 'Courier New', monospace">Monospace</option>
+                         </select>
+                         <select title="Size" class="ql-size">
+                             <option value="10px">Small</option>
+                             <option value="13px" selected>Normal</option>
+                             <option value="18px">Large</option>
+                             <option value="32px">Huge</option>
+                         </select>
+                         <select title="Text Alignment" class="ql-align">
+                             <option value="left" selected>Left</option>
+                             <option value="center">Center</option>
+                             <option value="right">Right</option>
+                             <option value="justify">Justify</option>
+                         </select>
+                         <button title="Bold" class="ql-format-button ql-bold">Bold</button>
+                         <button title="Italic" class="ql-format-button ql-italic">Italic</button>
+                         <button title="Underline" class="ql-format-button ql-underline">Under</button>
+                         <button title="Strikethrough" class="ql-format-button ql-strike">Strike</button>
+                         <button title="Bullet" class="ql-format-button ql-bullet">Bullet</button>
+                         <button title="List" class="ql-format-button ql-list">List</button>
+                     </div>
+
+                     <div id="editor-container">
+                     </div>
+                   </div>
+                 </div>
+
+                 <div role="tabpanel" class="tab-pane" id="history">
+                    <% @versions.take(1).each do |version| %>
+                    <div class="history badger-left badger-info" data-badger="<%= time_ago_in_words(version.updated_at) %>">
+                      <%= version.text.html_safe %>
+                    </div>
+                    <% end %>
+                 </div>
+               </div>
+           </div>
+       </div>
+   </div>
+</div>
+</div>
