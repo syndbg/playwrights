@@ -30,7 +30,7 @@ module Playwrights
 
     config.middleware.delete Rack::Lock
     config.middleware.use FayeRails::Middleware, mount: '/faye',
-                                                 timeout: 25,
+                                                 timeout: 35,
                                                  server: 'passenger',
                                                  engine: {
                                                    type: Faye::Redis,

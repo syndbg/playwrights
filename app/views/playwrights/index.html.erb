@@ -16,8 +16,8 @@
   </div>
 
 
-   <p class="header">Hello <%= @user.name %>. Your color is
-     <span style='color: <%= @user.color %>'><%= @user.color %></span>
+   <p class="header">Hello <span id="user-name"><%= @user.name %></span>. Your color is
+     <span id="user-color" style='color: <%= @user.color %>'><%= @user.color %></span>
    </p>
 
    <ul class="nav nav-tabs" role="tablist">

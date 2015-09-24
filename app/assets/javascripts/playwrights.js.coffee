@@ -1,17 +1,12 @@
 $(document).ready ->
   # TODO: Definitely change this when there's a login/signup pre-screen.
   getUserData = () ->
-    { name: $('#user_name').text(), color: $('#user_color').text() }
+    { name: $('#user-name').text(), color: $('#user-color').text() }
 
   loadPlaywright = () ->
     # TODO: Make it accept params[:id]
     $.get('/api/playwrights/1', (data) ->
       quill.setHTML(data.text)
-    )
-
-  updateVersions = () ->
-    $.get('/api/playwrights/1', (data) ->
-
     )
 
   savePlaywright = (saveText, errorText) ->
@@ -56,7 +51,6 @@ $(document).ready ->
   })
 
   loadPlaywright()
-  updateVersions()
 
   quill.on('selection-change', (range, source) ->
     if range? and source == 'user'
